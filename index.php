@@ -1,13 +1,35 @@
 <?php
-include_once("model/usuario.php");
+require ("model/Usuario.php");
 
-$user = new Usuario();
-$user->setRa(123);
-$user->setSenha("1234");
-$user->setNivelAcesso(1);
+$msgErro = '';
 
-Usuario::loginUsuario($user);
+if($_POST){
+    $usuario = new Usuario();
+    $usuario->setRa($_POST['ra']);
+    $usuario->setSenha($_POST['senha']);
 
-echo $user->getRa();
-echo '<br>';
-echo $user->getSenha();
+    if ($usuario->loginUsuario()) {
+        header("Location: plataforma.php");
+    } else {
+        $msgErro = 'Dados inválidos, tente novamente.';
+    }    
+}
+?>
+
+<form method="post">
+
+    <?php if(!empty($msgErro)){echo '<p>'.$msgErro.'</p>'; }?>
+
+    RA<br/>
+    <input type="text" name="ra"><br/><br/>
+
+    Senha<br/>
+    <input type="password" name="senha"><br/><br/>
+
+    <input type="submit" value="Fazer Login"><br/><br/>
+
+    <a href="login/esqueciasenha.php">Esqueci a Senha</a>
+    |
+    <a href="login/novaconta.php">Criar Conta</a>
+
+</form>
