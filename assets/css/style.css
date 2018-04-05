@@ -1,0 +1,33 @@
+body {
+    padding-top: 5rem;
+}
+
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+/*.navbar-expand-md{
+            background-color: blueviolet;
+        }*/
+
+.logo-utf {
+    height: 50x;
+    width: 100px;
+}
+
+.alinhamento-texto{
+    text-align: justify;
+}
+
+.div-jogo{
+    border: 1px solid black;
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.padding-pesquisaProf{
+    padding-bottom: 10px;
+}
