@@ -62,7 +62,7 @@ if($_POST){
             <a href="novaconta.php">Criar Conta</a>
             <?php if(!empty($msgErro)){ ?>
 
-                <p class="alert-warning"><?php echo $msgErro ?></p>
+                <p class="alert alert-danger"><?php echo $msgErro ?></p>
 
             <?php } ?>
         </div>
