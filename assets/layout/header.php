@@ -7,9 +7,17 @@
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
+                    
+                    <?php if($usuario->getNome()){ ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Sair</a>
+                    </li>
+                    <?php }else{ ?>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Logar</a>
                     </li>
+                    <?php } ?>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jogos</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -19,10 +27,12 @@
                             <a class="dropdown-item" href="#">Jogo 4</a>
                         </div>
                     </li>
+                    
+                    <?php if($usuario->getNivelAcesso() >= 2){ ?>
                     <li class="nav-item">
-                    <a class="nav-link" href="professor.php">Pagina do professor</a>
-
-                </li>
+                        <a class="nav-link" href="professor.php">Pagina do professor</a>
+                    </li>
+                    <?php } ?>
                 
                 <?php if($usuario->getNome()){ ?>
                 <span>Olá <?php echo $usuario->getNome() ?>, bem Vindo a Plataforma de Jogos</span>

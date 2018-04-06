@@ -52,9 +52,9 @@ if($_POST){
                 <input type="checkbox" value="remember-me"> Lembrar-se
             </label> -->
 
-            <a href="login/esqueciasenha.php">Esqueci a Senha</a>
+            <a href="esqueciasenha.php">Esqueci a Senha</a>
             |
-            <a href="login/novaconta.php">Criar Conta</a>
+            <a href="novaconta.php">Criar Conta</a>
             <?php if(!empty($msgErro)){ ?>
 
                 <p class="alert-warning"><?php echo $msgErro ?></p>

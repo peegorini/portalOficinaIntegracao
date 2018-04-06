@@ -1,4 +1,9 @@
-<!doctype html>
+<?php
+include_once('model/Usuario.php');
+session_start();
+$usuario = new Usuario($_SESSION['id']);
+
+?><!doctype html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
