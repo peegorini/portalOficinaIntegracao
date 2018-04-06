@@ -1,45 +1,37 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: 29-Mar-2018 às 21:20
--- Versão do servidor: 5.7.19
--- PHP Version: 7.1.9
+-- Host: 127.0.0.1
+-- Tempo de geração: 07/04/2018 às 01:03
+-- Versão do servidor: 10.1.31-MariaDB
+-- Versão do PHP: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
--- Database: `projetooficina`
+-- Banco de dados: `projetooficina`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `jogos`
+-- Estrutura para tabela `jogos`
 --
 
-DROP TABLE IF EXISTS `jogos`;
-CREATE TABLE IF NOT EXISTS `jogos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jogos` (
+  `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `descricao` varchar(100) NOT NULL,
   `hash_arquivo` varchar(40) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+  `id_usuario` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `jogos`
+-- Fazendo dump de dados para tabela `jogos`
 --
 
 INSERT INTO `jogos` (`id`, `nome`, `descricao`, `hash_arquivo`, `id_usuario`) VALUES
@@ -47,27 +39,44 @@ INSERT INTO `jogos` (`id`, `nome`, `descricao`, `hash_arquivo`, `id_usuario`) VA
 (6, 'PHPMailer-master', 'Pequena Descricao do Jogo!', 'da715fb9f55a7907ef42b3ad88139c13962aef67', 16),
 (7, 'PHPMailer-master', 'Pequena Descricao do Jogo!', '6fc4704daf3cba030a5065f2485ef264249eae7d', 16),
 (8, 'learningPixi-master', 'Pequena Descricao do Jogo!', 'a542da235cbf7e990a6fe493a0a9b42b8ebba8af', 16),
-(9, 'php_projeto_tags', 'Pequena Descricao do Jogo!', '9ec6506ca6ff99a6e69f083a78cfc9e0c8f26130', 16);
+(9, 'php_projeto_tags', 'Pequena Descricao do Jogo!', '9ec6506ca6ff99a6e69f083a78cfc9e0c8f26130', 16),
+(10, 'asdf', 'Pequena Descricao do Jogo!', 'f1419e47e23ee07d3ff498e474d970ed65dfebb5', 18),
+(11, 'asdf', 'Pequena Descricao do Jogo!', 'fdfc493b572f87e17cc5d0b40e211f9f8b9b4992', 18),
+(12, 'asdf', 'Pequena Descricao do Jogo!', '87c9c356e0c4930e5d5a06544ed84526a12948e5', 18),
+(13, 'asdf', 'Pequena Descricao do Jogo!', '729dd025ee9ab763f4861051aa4f4ae7e37f9df8', 18),
+(14, 'asdfksd', 'Pequena Descricao do Jogo!', 'f9e7e7a5b183df0cc28b390b38bbe818700c8afb', 18),
+(15, 'asdfksd', 'Pequena Descricao do Jogo!', 'fdd660395d99ec7cd50b8f6b68f426e076e82a2a', 18),
+(16, 'asdfksd', 'Pequena Descricao do Jogo!', 'b35b207a8ef4afcd72efa7d8a2a0cab8e348fe83', 18);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura para tabela `jogo_usuario`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jogo_usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `id_jogo` int(7) NOT NULL,
+  `data_conclusao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
   `ra` int(7) NOT NULL,
   `email` varchar(150) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `senha` varchar(40) NOT NULL,
-  `niveldeacesso` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+  `niveldeacesso` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Fazendo dump de dados para tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `ra`, `email`, `nome`, `senha`, `niveldeacesso`) VALUES
@@ -87,26 +96,25 @@ INSERT INTO `usuarios` (`id`, `ra`, `email`, `nome`, `senha`, `niveldeacesso`) V
 (14, 1476539, 'luisfelipe@gmail.com', 'Luis Felipe', '3c9c5e761a050099eef6096239e014d5341c97c2', 1),
 (15, 1476539, 'luisfelipe@gmail.com', 'Luis Felipe', '6ebf143833a860bc16fac2d1d93c0483af65854c', 1),
 (16, 1768452, 'marco@gmail.com', 'Marco de Lima', '3829486b93ec44395f0b980424bae9b6fb07b7bc', 1),
-(17, 5412369, 'teste@gmail.com', 'Teste', '97fcc7c4f1df18696b23ef9a44efc36482e9e51a', 1);
+(17, 5412369, 'teste@gmail.com', 'Teste', '97fcc7c4f1df18696b23ef9a44efc36482e9e51a', 1),
+(18, 1343416, 'eliocosta@outlook.com', 'Elio', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios_tokens`
+-- Estrutura para tabela `usuarios_tokens`
 --
 
-DROP TABLE IF EXISTS `usuarios_tokens`;
-CREATE TABLE IF NOT EXISTS `usuarios_tokens` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuarios_tokens` (
+  `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `hash` varchar(40) NOT NULL,
   `usado` tinyint(1) NOT NULL DEFAULT '0',
-  `expira_em` timestamp NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `expira_em` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Extraindo dados da tabela `usuarios_tokens`
+-- Fazendo dump de dados para tabela `usuarios_tokens`
 --
 
 INSERT INTO `usuarios_tokens` (`id`, `id_usuario`, `hash`, `usado`, `expira_em`) VALUES
@@ -114,8 +122,55 @@ INSERT INTO `usuarios_tokens` (`id`, `id_usuario`, `hash`, `usado`, `expira_em`)
 (2, 6, '74168919f81e015e6913eb566613408d56ae2354', 1, '2018-04-27 03:25:00'),
 (3, 8, '41aa60a956399ddaee04cb8b305e8fb35ed7af18', 1, '2018-04-27 21:39:00'),
 (4, 10, 'c2bc161a684d99abbb12ba2c05ee1cf6c6aea1f6', 1, '2018-04-28 00:21:00');
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Índices de tabelas apagadas
+--
+
+--
+-- Índices de tabela `jogos`
+--
+ALTER TABLE `jogos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `jogo_usuario`
+--
+ALTER TABLE `jogo_usuario`
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_jogo` (`id_jogo`);
+
+--
+-- Índices de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `usuarios_tokens`
+--
+ALTER TABLE `usuarios_tokens`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `jogos`
+--
+ALTER TABLE `jogos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios_tokens`
+--
+ALTER TABLE `usuarios_tokens`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
