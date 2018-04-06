@@ -32,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="professor.php">Pagina do professor</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="enviarJogo.php">Enviar jogo</a>
+                    </li>
                     <?php } ?>
                 
                 <?php if($usuario->getNome()){ ?>

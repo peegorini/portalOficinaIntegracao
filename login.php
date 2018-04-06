@@ -17,6 +17,11 @@ if($_POST){
             header("Location: professor.php");
             exit;
         }
+        else if($usuario->getNivelAcesso() == 3){
+            header("Location: admin.php");
+            exit;
+        }
+
     } else {
         $msgErro = 'Dados inválidos, tente novamente.';
     }

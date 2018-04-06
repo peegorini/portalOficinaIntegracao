@@ -36,4 +36,4 @@ if (isset($arquivo['tmp_name']) && !empty($arquivo['tmp_name'])) {
 <h3>Caso esteja tudo ok, logo ele estará disponível em nosso acervo!</h3><br/>
 <h4>Obrigado pela contribuição! :)</h4><br/><br/>
 
-<a href="../plataforma.php">Voltar para a home</a>
+<a href="index.php">Voltar para a home</a>
