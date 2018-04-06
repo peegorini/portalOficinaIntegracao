@@ -8,11 +8,18 @@ if($_POST){
     $usuario->setRa($_POST['ra']);
     $usuario->setSenha($_POST['senha']);
 
-    if ($usuario->loginUsuario()) {
-        header("Location: plataforma.php");
+    if ($usuario->loginUsuario($usuario)) {
+        if($usuario->getNivelAcesso() == 1){
+            header("Location: index.php");
+            exit;
+        }
+        else if($usuario->getNivelAcesso() == 2){
+            header("Location: professor.php");
+            exit;
+        }
     } else {
         $msgErro = 'Dados inválidos, tente novamente.';
-    }    
+    }
 }
 ?>
 <!doctype html>

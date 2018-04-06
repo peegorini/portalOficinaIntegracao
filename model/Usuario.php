@@ -140,7 +140,7 @@ Class Usuario{
         }
     }
 
-    public function loginUsuario(){
+    public function loginUsuario(&$usuario){
         
         $sql = "SELECT * FROM usuarios WHERE ra = :ra AND senha = :senha";
         $sql = $this->pdo->prepare($sql);
@@ -153,9 +153,13 @@ Class Usuario{
         if($sql->rowCount() > 0){
 
             $dados = $sql->fetch();
-            
+
+            $usuario->setNivelAcesso($dados['niveldeacesso']);
+            $usuario->setId($dados['id']);
+                        
             $_SESSION['id'] = $dados['id'];
             $_SESSION['nivelAcesso'] = $dados['niveldeacesso'];
+
             return true;
         }
         session_destroy();
