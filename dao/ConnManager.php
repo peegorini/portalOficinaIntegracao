@@ -17,7 +17,7 @@ Class ConnManager{
         $dbuser = "root";
 
         // Senha do Usuário setado acima
-        $dbpass = "r3mobis-";
+        $dbpass = "";
 
         // Montagem da string de conexão
         $dsn = $sgdb . ":dbname=" . $dbname . ";host=" . $dbhost;
