@@ -1,5 +1,5 @@
 <?php
-require "dao/connectionManager.php";
+require "dao/ConnManager.php";
 
 if (!empty($_GET['token'])){
 

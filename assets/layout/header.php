@@ -8,11 +8,11 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                 
-                <?php if($usuario->getNome()){ ?>
+                <?php if($usuario){ ?>
                     <span>(<?php echo $usuario->getNome() ?>)</span>
                 <?php } ?>
 
-                <?php if($usuario->getNome()){ ?>
+                <?php if($usuario){ ?>
                         <a class="nav-link" href="logout.php">Sair</a>
                 <?php }else{ ?>
                         <a class="nav-link" href="login.php">Logar</a>
@@ -28,14 +28,17 @@
                         </div>
                     </li>
                     
-                    <?php if($usuario->getNivelAcesso() >= 2){ ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="professor.php">Pagina do professor</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="enviarJogo.php">Enviar jogo</a>
-                    </li>
-                    <?php } ?>
+                    <?php if($usuario){
+                        if($usuario->getNivelAcesso() >= 2){ ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="professor.php">Pagina do professor</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="enviarJogo.php">Enviar jogo</a>
+                            </li>
+                        <?php }
+                    }
+                    ?>
 
                 </ul>
                 <a href="http://portal.utfpr.edu.br/" target="_blank"><img src="assets/img/utf-logo.png" class="logo-utf"></a>

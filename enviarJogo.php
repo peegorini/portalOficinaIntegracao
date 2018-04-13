@@ -1,6 +1,8 @@
 <?php
-include_once "model/Usuario.php";
-Usuario::checkPermissao(1);
+include_once "dao/DaoUsuario.php";
+$daousuario = new DaoUsuario();
+$usuario = $daousuario->getUsuario($_SESSION['id']);
+$usuario->checkPermissao(2);
 ?>
 
 <h1>Enviar Jogo</h1>

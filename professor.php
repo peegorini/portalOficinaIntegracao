@@ -1,7 +1,9 @@
 <?php
-include_once('model/Usuario.php');
+include_once('dao/DaoUsuario.php');
 session_start();
-$usuario = new Usuario($_SESSION['id']);
+$daousuario = new DaoUsuario();
+$usuario = $daousuario->getUsuario($_SESSION['id']);
+$usuario->checkPermissao(2);
 
 ?><!doctype html>
 <html lang="pt-br">

@@ -1,12 +1,15 @@
 <?php
-include_once "model/Jogo.php";
-include_once "model/Usuario.php";
-Usuario::checkPermissao(1);
+include_once "dao/DaoUsuario.php";
+include_once "dao/DaoJogo.php";
+session_start();
+$daousuario = new DaoUsuario();
+$usuario = $daousuario->getUsuario($_SESSION['id']);
+$usuario->checkPermissao(2);
 
 $arquivo = $_FILES['arquivo'];
 
 if (isset($arquivo['tmp_name']) && !empty($arquivo['tmp_name'])) {
-    if ($arquivo['type'] == "application/x-zip-compressed") {
+    if ($arquivo['type'] == "application/x-zip-compressed" || $arquivo['type'] == "application/zip") {
 
         $nomeDoArquivo = SHA1(time() . rand(0, 9999));
 
@@ -20,9 +23,11 @@ if (isset($arquivo['tmp_name']) && !empty($arquivo['tmp_name'])) {
         $jogo->setNome($nomeDoJogo);
         $jogo->setHashArquivo($nomeDoArquivo);
         $jogo->setDescricao("Pequena Descricao do Jogo!");
-        $jogo->setIdUsuario($_SESSION['id']);
+        $jogo->setIdUsuario($usuario->getId());
 
-        $jogo->salvar();
+        $jogoDao = new DaoJogo();
+        $jogoDao->salvar($jogo);
+
     } else {
         header("Location: enviarJogo.php");
         exit;

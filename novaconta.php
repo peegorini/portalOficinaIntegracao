@@ -1,5 +1,5 @@
 <?php
-require "model/Usuario.php";
+require "dao/DaoUsuario.php";
 
 if (isset($_POST['ra']) && !empty($_POST['ra'])){
     if (isset($_POST['nome']) && !empty($_POST['nome'])){
@@ -13,13 +13,8 @@ if (isset($_POST['ra']) && !empty($_POST['ra'])){
                 $usuario->setEmail(addslashes($_POST['email']));
                 $usuario->setSenha(sha1(addslashes($_POST['senha']))); // Dado encriptografado com SHA-1
 
-                $usuario->salvar();
-
-                // header("Location: ../index.php");
-                echo $usuario->getId();
-                echo $usuario->getNome();
-                exit;
-
+                $daoUsuario = new DaoUsuario();
+                $daoUsuario->salvar($usuario);
             }
         }
     }
