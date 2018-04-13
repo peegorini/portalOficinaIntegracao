@@ -1,5 +1,5 @@
 <?php
-require_once "dao/connectionManager.php";
+require_once "dao/ConnManager.php";
 
 if(!empty($_POST['ra'])){
 

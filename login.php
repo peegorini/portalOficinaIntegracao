@@ -1,5 +1,5 @@
 <?php
-require ("model/Usuario.php");
+require ("dao/DaoUsuario.php");
 
 $msgErro = '';
 
@@ -8,7 +8,9 @@ if($_POST){
     $usuario->setRa($_POST['ra']);
     $usuario->setSenha($_POST['senha']);
 
-    if ($usuario->loginUsuario($usuario)) {
+    $loginUsuario = new DaoUsuario();
+
+    if ($loginUsuario->loginUsuario($usuario)) {
         if($usuario->getNivelAcesso() == 1){
             header("Location: index.php");
             exit;

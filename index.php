@@ -1,7 +1,8 @@
 <?php
-include_once "model/Usuario.php";
+include_once "dao/DaoUsuario.php";
 session_start();
-$usuario = new Usuario($_SESSION['id']);
+$usuario = new DaoUsuario();
+$usuario = $usuario->getUsuario($_SESSION['id']);
 
 ?><!doctype html>
 <html lang="pt-br">
