@@ -46,3 +46,11 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.opcoes{
+  padding: 15px;
+}
+
+.opcoes>a:hover{  
+  text-decoration: none;
+}

@@ -1,0 +1,88 @@
+<?php
+require_once "dao/ConnManager.php";
+
+if(!empty($_POST['ra'])){
+
+    $ra = addslashes($_POST['ra']);
+
+    $sql = "SELECT * FROM usuarios WHERE ra = :ra";
+    $sql = $pdo->prepare($sql);
+    $sql->bindValue(":ra",$ra);
+    $sql->execute();
+
+    if($sql->rowCount() > 0){
+        $sql = $sql->fetch();
+        $id = $sql['id'];
+
+        $token = sha1(time().rand(0,99999).rand(0,99999));
+
+        $sql = "INSERT INTO usuarios_tokens SET id_usuario = :id_usuario, hash = :hash, expira_em = :expira_em";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(":id_usuario", $id);
+        $sql->bindValue(":hash", $token);
+        $sql->bindValue(":expira_em", date('Y-m-d H:i', strtotime('+1 months')));
+        $sql->execute();
+
+        $link = "http://localhost/portaloficinaintegracao/redefinir.php?token=".$token;
+
+        $mensagem = "Clique no link para redefinir sua senha:<br/>".$link;
+
+        $assunto = "Redefinição de senha";
+
+        $headers = 'From: teste@teste.com.br'."\r\n".'X-Mailer: PHP/'.phpversion();
+
+        // mail($email, $assunto,$mensagem,$headers);
+
+        echo $mensagem;
+        exit;
+    }
+}
+?><!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="../imagens/favicon.ico">
+
+    <title>Recuperar Senha - Jogos Educacionais</title>
+
+    <link rel="stylesheet" href="assets/css/sigin.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="text-center">
+    <form class="form-signin" method="POST">
+        <img class="mb-4" src="assets/img/utf-logo.png" width="200px" height="65px">
+        <h3>Jogos Educacionais</h3>
+        <br>
+        <h4>Recuperar Senha</h4>
+        <br>
+        <label for="inputRA" class="sr-only">RA</label>
+        <input type="text" class="form-control" id="inputRA" name="ra" placeholder="RA" required autofocus>
+        <br>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="E-mail Institucional" required autofocus>
+        <br>
+        <p id="aviso-recuperação"></p>
+        <button class="btn btn-lg btn-dark btn-block" onclick="recuperar()" type="submit">Recuperar</button>
+    </form>
+
+    <script>
+        function recuperar() {
+            if ((document.getElementById("inputRA").value != "") && (document.getElementById("inputEmail").value != "")) {
+                alert("Confira seu e-mail para mais instruções.")
+            }
+        }
+    </script>
+
+    <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
