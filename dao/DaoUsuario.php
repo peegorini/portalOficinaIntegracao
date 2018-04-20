@@ -46,6 +46,7 @@ class DaoUsuario extends ConnManager {
     }
 
     public function salvar(&$usuario){
+
         if(!empty($usuario->getId())){
             $sql = $this->conn->prepare("UPDATE usuarios SET ra = :ra, nome = :nome, email = :email, senha = :senha WHERE id = :id");
             $sql->bindValue(":id",$usuario->getId());
@@ -55,6 +56,18 @@ class DaoUsuario extends ConnManager {
             $sql->bindValue(":senha",$usuario->getSenha());
             $sql->execute();
         } else {
+
+            // Verifica que se ja existe um usuario no banco
+            $sqlChecagem = $this->conn->prepare("SELECT * FROM usuarios WHERE ra = :ra OR email = :email");
+            $sqlChecagem->bindValue(":ra",$usuario->getRa());
+            $sqlChecagem->bindValue(":email",$usuario->getEmail());
+            $sqlChecagem->execute();
+            $dados = $sqlChecagem->fetch();
+            
+            if(!empty($dados['id'])){
+                return false;
+            }
+
             $sql = $this->conn->prepare("INSERT INTO usuarios SET ra = :ra, nome = :nome, email = :email, senha = :senha");
             $sql->bindValue(":ra",$usuario->getRa());
             $sql->bindValue(":nome",$usuario->getNome());
@@ -64,6 +77,7 @@ class DaoUsuario extends ConnManager {
             $usuario->setId($this->conn->lastInsertId());
             $usuario->setNivelAcesso(1);
         }
+        return $sql->execute();
     }
 
     public function buscaUsuario($chave, $valor){
