@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="../imagens/favicon.ico">
+    <link rel="icon" href="assets/img/favicon.ico">
 
     <title>Jogos Educacionais</title>
 
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../paginas/css/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <?php include_once('../templates/header.html') ?>
+    <?php include_once('assets/layout/header.php') ?>
     
     <main role="main" class="container">
 
@@ -29,18 +29,22 @@
                 quo ad dicta, in! Os slides acima é uma breve apresentação dos jogos Lorem ipsum dolor sit amet, consectetur
                 adipisicing elit. Autem, suscipit placeat provident nemo quibusdam culpa delectus? Fuga necessitatibus rem
                 possimus magnam, autem, consectetur sequi corporis.
-
-                <div id="div-download-apk">
-                    <h4>Baixe via google play ou .apk</h4>
-                    <br>
-                    <a href="#"><img src="../imagens/img-playstore.png" class="img-download-apk"></a>
-                    <a href="#"><img src="../imagens/img-apk.png" class="img-download-apk"></a>
-                </div>
             </p>
+
+            <h3><a class="btn btn-lg btn-dark" href="jogos/jogo04/jogo04.php">Acesse aqui</a></h3>
+
+            <h4>ou</h4>
+
+            <div id="div-download-apk">
+                <h4>Baixe via google play ou .apk a versão mobile</h4>
+                <br>
+                <a href="#"><img src="assets/img/img-playstore.png" class="img-download-apk"></a>
+                <a href="#"><img src="assets/img/img-apk.png" class="img-download-apk"></a>
+            </div>
         </div>
     </main>
 
-    <?php include_once('../templates/footer.html') ?>
+    <?php include_once('assets/layout/footer.html') ?>
 
 </body>
 
