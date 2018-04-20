@@ -1,22 +1,28 @@
 <?php
 require "dao/DaoUsuario.php";
 
-if (isset($_POST['ra']) && !empty($_POST['ra'])){
-    if (isset($_POST['nome']) && !empty($_POST['nome'])){
-        if (isset($_POST['email']) && !empty($_POST['email'])){
-            if (isset($_POST['senha']) && !empty($_POST['senha'])){
+$msg = '';
+$headerRedirect = '';
+$msgStatus = false;
 
-                $usuario = new Usuario();
+if (!empty($_POST['ra']) && !empty($_POST['nome']) && !empty($_POST['email']) && !empty($_POST['senha'])){
 
-                $usuario->setRa(addslashes($_POST['ra']));
-                $usuario->setNome(addslashes($_POST['nome']));
-                $usuario->setEmail(addslashes($_POST['email']));
-                $usuario->setSenha(sha1(addslashes($_POST['senha']))); // Dado encriptografado com SHA-1
+    $usuario = new Usuario();
 
-                $daoUsuario = new DaoUsuario();
-                $daoUsuario->salvar($usuario);
-            }
-        }
+    $usuario->setRa(addslashes($_POST['ra']));
+    $usuario->setNome(addslashes($_POST['nome']));
+    $usuario->setEmail(addslashes($_POST['email']));
+    $usuario->setSenha(sha1(addslashes($_POST['senha']))); // Dado encriptografado com SHA-1
+
+    $daoUsuario = new DaoUsuario();
+    if($daoUsuario->salvar($usuario)){
+        $msg = 'Cadastro efetuado com sucesso! Redirecionando para a página de login...';
+        $msgStatus = true;
+        $headerRedirect = '<meta http-equiv="refresh" content="5; url=login.php" />';
+    }
+    else{
+        $msg = 'Não foi possível completar seu cadastro, verifique os dados.';
+        $msgStatus = false;
     }
 }
 
@@ -28,7 +34,7 @@ if (isset($_POST['ra']) && !empty($_POST['ra'])){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="assets/img/favicon.ico">
-
+    <?php echo $headerRedirect ?>
     <title>Criar Conta - Jogos Educacionais</title>
 
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -43,6 +49,11 @@ if (isset($_POST['ra']) && !empty($_POST['ra'])){
         <br>
         <h4>Criar conta</h4>
         <br>
+        <?php if(!empty($msg)){ ?>
+
+            <p class="alert <?php echo ($msgStatus?'alert-success':'alert-danger')?>"><?php echo $msg ?></p>
+
+        <?php } if(!$msgStatus){ ?>
         <label for="inputRA" class="sr-only">RA</label>
         <input type="text" class="form-control" id="inputRA" placeholder="RA" name="ra" required autofocus>
         <br>
@@ -56,6 +67,7 @@ if (isset($_POST['ra']) && !empty($_POST['ra'])){
         <input type="password" id="inputSenha" class="form-control" placeholder="Senha" name="senha" required>
         <br>
         <button class="btn btn-lg btn-dark btn-block" type="submit">Criar Conta</button>
+        <?php } ?>
     </form>
 
     <script src="assets/js/jquery-3.2.1.slim.min.js"></script>

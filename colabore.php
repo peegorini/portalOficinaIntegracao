@@ -6,6 +6,7 @@ $msgStatus = false;
 
 if($_POST && isset($_FILES['arquivo'])){
 
+    $recipient_name     = 'Elio Machado Costa';
     $recipient_email    = 'eliocostac4@gmail.com';
         
     //Get uploaded file data
@@ -45,12 +46,12 @@ if($_POST && isset($_FILES['arquivo'])){
     
 
     $message = "<html><head></head><body>Titulo: $titulo <br>
-                Nome: $nome <br>
-                Email: $email <br>
-                Universidade: $universidade <br>
-                Curso: $curso <br>
-                Descricao: ".nl2br($descricao)."<br>
-                Arquivo: $arquivo<br><br>
+                <strong>Nome:</strong> $nome <br>
+                <strong>Email:</strong> $email <br>
+                <strong>Universidade:</strong> $universidade <br>
+                <strong>Curso:</strong> $curso <br>
+                <strong>Descricao:</strong> <br>".nl2br($descricao)."<br>
+                <br><br>
                 <strong>Confira o arquivo em anexo</strong></body></html>";
     $subject = "Novo envio de jogo para a plataforma";
 
@@ -69,14 +70,14 @@ if($_POST && isset($_FILES['arquivo'])){
     $body .="X-Attachment-Id: ".rand(1000,99999)."\r\n\r\n"; 
     $body .= $encoded_content; 
 
-    $sentMail = mail("Elio Machado Costa <$recipient_email>", $subject, $body, $headers);
-    if($sentMail) //output success or failure messages
-    {       
-        die('Thank you for your email');
+    $sentMail = @mail("$recipient_name <$recipient_email>", $subject, $body, $headers);
+    if($sentMail){       
+        $msg = "Obrigado por colaborar com nossa plataforma, entraremos em contato.";
+        $msgStatus = true;
     }else{
-        die('Could not send mail! Please check your PHP mail configuration.');  
+        $msg = "Não foi possível enviar, por favor verifique os dados e tente novamente.";
+        $msgStatus = false;
     }
-
 }
 
 ?><!doctype html>
@@ -117,14 +118,13 @@ if($_POST && isset($_FILES['arquivo'])){
                 officia ullam illo culpa temporibus corporis quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Eius esse amet alias, earum ullam laboriosam at ea nihil temporibus vel vitae vero velit eligendi perspiciatis
                 exercitationem adipisci, aspernatur repellat, doloribus.
-                <br>
             </p>
-            <br>
-            <br>
+        </div>
+
+        <div class="starter-template">
             <span class="campo-requerido" id="campo-requerido"> * </span>
             <span id="campo-requerido">Campos Obrigatórios</span>
         </div>
-
         <div class="starter-template">
 
             <form enctype="multipart/form-data" id="formulario" method="POST">
@@ -178,9 +178,15 @@ if($_POST && isset($_FILES['arquivo'])){
                     <label for="EscolherArquivo"></label>
                     <input type="file" class="form-control-file" name="arquivo" id="EscolherArquivo" required>
                 </div>
+                <?php if(!empty($msg)){ ?>
+
+                    <p class="alert <?php echo ($msgStatus?'alert-success':'alert-danger')?>"><?php echo $msg ?></p>
+
+                <?php } ?>
                 <button type="submit" class="btn btn-dark">Enviar</button>
             </form>
         </div>
+        
     </main>
 
     <?php include_once('assets/layout/footer.html') ?>
