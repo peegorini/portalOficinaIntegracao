@@ -38,6 +38,9 @@ if($_POST && isset($_FILES['arquivo'])){
     $headers = "MIME-Version: 1.0\r\n"; 
     $headers .= "To: Elio <$recipient_email>\r\n";
     $headers .= "From: $nome <$email>\r\n"; 
+    $headers .= "X-Priority: 3\r\n";
+    $headers .= "X-Mailer: PHP". phpversion() ."\r\n" 
+
     $headers .= "Content-Type: multipart/mixed; boundary = $boundary\r\n\r\n"; 
 
     
