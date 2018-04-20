@@ -36,26 +36,29 @@ if($_POST && isset($_FILES['arquivo'])){
     $boundary = md5(time());
     //header
     $headers = "MIME-Version: 1.0\r\n"; 
-    $headers .= "To: Elio <$recipient_email>\r\n";
+    $headers .= "To: Elio Machado Costa <$recipient_email>\r\n";
     $headers .= "From: $nome <$email>\r\n"; 
+    $headers .= "Reply-To: Elio Machado Costa <elio@alunos.utfpr.edu.br>\r\n"; 
+    $headers .= "Return-Path: Elio Machado Costa <elio@alunos.utfpr.edu.br>\r\n";
     $headers .= "X-Priority: 3\r\n";
     $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
     $headers .= "Content-Type: multipart/mixed; boundary = $boundary\r\n\r\n"; 
     
 
-    $message = "Titulo: $titulo <br>
+    $message = "<html><head></head><body>Titulo: $titulo <br>
                 Nome: $nome <br>
                 Email: $email <br>
                 Universidade: $universidade <br>
                 Curso: $curso <br>
                 Descricao: ".nl2br($descricao)."<br>
                 Arquivo: $arquivo<br><br>
-                <strong>Confira o arquivo em anexo</strong>";
+                <strong>Confira o arquivo em anexo</strong></body></html>";
     $subject = "Novo envio de jogo para a plataforma";
 
     //plain text 
     $body = "--$boundary\r\n";
-    $body .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+    $body .= "MIME-Version: 1.0\r\n";
+    $body .= "Content-Type: text/html; charset=UTF-8\r\n";
     $body .= "Content-Transfer-Encoding: base64\r\n\r\n"; 
     $body .= chunk_split(base64_encode($message)); 
     
