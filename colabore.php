@@ -36,10 +36,9 @@ if($_POST && isset($_FILES['arquivo'])){
     $boundary = md5(time());
     //header
     $headers = "MIME-Version: 1.0\r\n"; 
-    $headers .= "To: Elio Machado Costa <$recipient_email>\r\n";
     $headers .= "From: $nome <$email>\r\n"; 
-    $headers .= "Reply-To: Elio Machado Costa <elio@alunos.utfpr.edu.br>\r\n"; 
-    $headers .= "Return-Path: Elio Machado Costa <elio@alunos.utfpr.edu.br>\r\n";
+    $headers .= "Reply-To: $nome <$email>\r\n"; 
+    $headers .= "Return-Path: $nome <$email>\r\n";
     $headers .= "X-Priority: 3\r\n";
     $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
     $headers .= "Content-Type: multipart/mixed; boundary = $boundary\r\n\r\n"; 
@@ -69,8 +68,8 @@ if($_POST && isset($_FILES['arquivo'])){
     $body .="Content-Transfer-Encoding: base64\r\n";
     $body .="X-Attachment-Id: ".rand(1000,99999)."\r\n\r\n"; 
     $body .= $encoded_content; 
-    
-    $sentMail = mail($recipient_email, $subject, $body, $headers);
+
+    $sentMail = mail("Elio Machado Costa <$recipient_email>", $subject, $body, $headers);
     if($sentMail) //output success or failure messages
     {       
         die('Thank you for your email');
