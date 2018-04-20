@@ -1,5 +1,8 @@
 <?php
-require_once "dao/ConnManager.php";
+include_once "dao/DaoUsuario.php";
+session_start();
+$usuario = new DaoUsuario();
+$usuario = $usuario->getUsuario($_SESSION['id']);
 
 $msg = '';
 $msgStatus = false;
