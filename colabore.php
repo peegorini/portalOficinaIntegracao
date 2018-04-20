@@ -4,7 +4,16 @@ require_once "dao/ConnManager.php";
 $msg = '';
 $msgStatus = false;
 
-if(!empty($_POST)){
+if($_POST && isset($_FILES['arquivo'])){
+
+    $recipient_email    = 'eliocostac4@gmail.com';
+        
+    //Get uploaded file data
+    $file_tmp_name    = $_FILES['arquivo']['tmp_name'];
+    $file_name        = $_FILES['arquivo']['name'];
+    $file_size        = $_FILES['arquivo']['size'];
+    $file_type        = $_FILES['arquivo']['type'];
+    $file_error       = $_FILES['arquivo']['error'];
 
     $titulo         = $_POST['titulo'];
     $nome           = $_POST['nome'];
@@ -14,11 +23,26 @@ if(!empty($_POST)){
     $descricao      = $_POST['descricao'];
     $arquivo        = $_POST['arquivo'];
 
-    $link = "http://localhost/portaloficinaintegracao/redefinir.php?token=".$token;
+    if($file_error > 0){
+        die('Arquivo não suportado, envie apenas .zip');
+    }
 
-    $uid = md5(uniqid(time()));
+    //read from the uploaded file & base64_encode content for the mail
+    $handle = fopen($file_tmp_name, "r");
+    $content = fread($handle, $file_size);
+    fclose($handle);
+    $encoded_content = chunk_split(base64_encode($content));
 
-    $mensagem = "Titulo: $titulo <br>
+    $boundary = md5(time());
+    //header
+    $headers = "MIME-Version: 1.0\r\n"; 
+    $headers .= "To: Elio <$recipient_email>\r\n";
+    $headers .= "From: $nome <$email>\r\n"; 
+    $headers .= "Content-Type: multipart/mixed; boundary = $boundary\r\n\r\n"; 
+
+    
+
+    $message = "Titulo: $titulo <br>
                 Nome: $nome <br>
                 Email: $email <br>
                 Universidade: $universidade <br>
@@ -26,39 +50,28 @@ if(!empty($_POST)){
                 Descricao: ".nl2br($descricao)."<br>
                 Arquivo: $arquivo<br><br>
                 <strong>Confira o arquivo em anexo</strong>";
+    $subject = "Novo envio de jogo para a plataforma";
 
-    $assunto = "Novo envio de jogo para a plataforma";
+    //plain text 
+    $body = "--$boundary\r\n";
+    $body .= "Content-Type: text/plain; charset=ISO-8859-1\r\n";
+    $body .= "Content-Transfer-Encoding: base64\r\n\r\n"; 
+    $body .= chunk_split(base64_encode($message)); 
     
-    $file = $path.$filename;
-    $content = file_get_contents($file);
-    $content = chunk_split(base64_encode($content));
-    $uid = md5(uniqid(time()));
-    $name = basename($file);
-
-    // header
-    $header = "To: Elio <eliocostac4@gmail.com>\r\n";
-    $header .= "From: ".$nome." <".$email.">\r\n";
-    $header .= "MIME-Version: 1.0\r\n";
-    $header .= "Content-Type: multipart/mixed; boundary=\"".$uid."\"\r\n\r\n";
-
-    // message & attachment
-    $nmessage = "--".$uid."\r\n";
-    $nmessage .= "Content-type:text/plain; charset=iso-8859-1\r\n";
-    $nmessage .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-    $nmessage .= $mensagem."\r\n\r\n";
-    $nmessage .= "--".$uid."\r\n";
-    $nmessage .= "Content-Type: application/octet-stream; name=\"".$filename."\"\r\n";
-    $nmessage .= "Content-Transfer-Encoding: base64\r\n";
-    $nmessage .= "Content-Disposition: attachment; filename=\"".$filename."\"\r\n\r\n";
-    $nmessage .= $content."\r\n\r\n";
-    $nmessage .= "--".$uid."--";
-
+    //attachment
+    $body .= "--$boundary\r\n";
+    $body .="Content-Type: $file_type; name=".$file_name."\r\n";
+    $body .="Content-Disposition: attachment; filename=".$file_name."\r\n";
+    $body .="Content-Transfer-Encoding: base64\r\n";
+    $body .="X-Attachment-Id: ".rand(1000,99999)."\r\n\r\n"; 
+    $body .= $encoded_content; 
     
-
-    if (mail('eliocostac4@gmail.com', $assunto, $nmessage, $header)) {
-        return true; // Or do something here
-    } else {
-      return false;
+    $sentMail = mail($recipient_email, $subject, $body, $headers);
+    if($sentMail) //output success or failure messages
+    {       
+        die('Thank you for your email');
+    }else{
+        die('Could not send mail! Please check your PHP mail configuration.');  
     }
 
 }
@@ -111,7 +124,7 @@ if(!empty($_POST)){
 
         <div class="starter-template">
 
-            <form id="formulario" method="POST">
+            <form enctype="multipart/form-data" id="formulario" method="POST">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
