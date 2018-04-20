@@ -76,8 +76,8 @@ class DaoUsuario extends ConnManager {
             $sql->execute();
             $usuario->setId($this->conn->lastInsertId());
             $usuario->setNivelAcesso(1);
+            return true;
         }
-        return $sql->execute();
     }
 
     public function buscaUsuario($chave, $valor){

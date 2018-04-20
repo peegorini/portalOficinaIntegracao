@@ -12,7 +12,7 @@ if (!empty($_POST['ra']) && !empty($_POST['nome']) && !empty($_POST['email']) &&
     $usuario->setRa(addslashes($_POST['ra']));
     $usuario->setNome(addslashes($_POST['nome']));
     $usuario->setEmail(addslashes($_POST['email']));
-    $usuario->setSenha(sha1(addslashes($_POST['senha']))); // Dado encriptografado com SHA-1
+    $usuario->setSenha($_POST['senha']); // Dado encriptografado com SHA-1
 
     $daoUsuario = new DaoUsuario();
     if($daoUsuario->salvar($usuario)){

@@ -45,7 +45,7 @@ Class Usuario{
 	}
 
     public function setSenha($senha){
-        $this->senha = sha1(addslashes($senha));
+        $this->senha = sha1($senha);
     }
 
 	public function getNivelAcesso(){
