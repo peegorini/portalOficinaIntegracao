@@ -48,7 +48,8 @@ if($_POST && isset($_FILES['arquivo'])){
     $headers .= "Content-Type: multipart/mixed; boundary = $boundary\r\n\r\n"; 
     
 
-    $message = "<html><head></head><body>Titulo: $titulo <br>
+    $message = "<html><head></head><body>
+                <strong>Titulo:</strong> $titulo <br>
                 <strong>Nome:</strong> $nome <br>
                 <strong>Email:</strong> $email <br>
                 <strong>Universidade:</strong> $universidade <br>
@@ -71,7 +72,7 @@ if($_POST && isset($_FILES['arquivo'])){
     $body .="Content-Disposition: attachment; filename=".$file_name."\r\n";
     $body .="Content-Transfer-Encoding: base64\r\n";
     $body .="X-Attachment-Id: ".rand(1000,99999)."\r\n\r\n"; 
-    $body .= $encoded_content; 
+    $body .= $encoded_content;
 
     $sentMail = @mail("$recipient_name <$recipient_email>", $subject, $body, $headers);
     if($sentMail){       

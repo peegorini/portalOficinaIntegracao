@@ -68,11 +68,12 @@ class DaoUsuario extends ConnManager {
                 return false;
             }
 
-            $sql = $this->conn->prepare("INSERT INTO usuarios SET ra = :ra, nome = :nome, email = :email, senha = :senha");
+            $sql = $this->conn->prepare("INSERT INTO usuarios SET ra = :ra, nome = :nome, email = :email, senha = :senha, niveldeacesso = :niveldeacesso");
             $sql->bindValue(":ra",$usuario->getRa());
             $sql->bindValue(":nome",$usuario->getNome());
             $sql->bindValue(":email",$usuario->getEmail());
             $sql->bindValue(":senha",$usuario->getSenha());
+            $sql->bindValue(":niveldeacesso",$usuario->getNivelAcesso());
             $sql->execute();
             $usuario->setId($this->conn->lastInsertId());
             $usuario->setNivelAcesso(1);
