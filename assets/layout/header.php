@@ -41,14 +41,19 @@
             <li class="nav-item">
               <a class="nav-link" href="pagina-do-professor.php">Pagina do professor</a>
             </li>
+
         <?php }
         }
         ?>
             <li class="nav-item">
               <a class="nav-link" href="colabore.php">Colabore</a>
             </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="publicar-jogo.php">Publicar</a>
+            </li>
       </ul>
-      <img src="assets/img/utf-logo.png" class="logo-utf">
+      <img src="assets/img/logo1.png" class="logo-utf">
     </div>
   </nav>
 </header>

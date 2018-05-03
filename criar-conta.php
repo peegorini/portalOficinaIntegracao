@@ -44,7 +44,7 @@ if (!empty($_POST['ra']) && !empty($_POST['nome']) && !empty($_POST['email']) &&
 
 <body class="text-center">
     <form class="form-signin" method="POST">
-        <img class="mb-4" src="assets/img/utf-logo.png" width="200px" height="65px">
+        <img class="mb-4" src="assets/img/logo2.png"width="220px" height="85px">
         <h3>Jogos Educacionais</h3>
         <br>
         <h4>Criar conta</h4>
