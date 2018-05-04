@@ -32,7 +32,25 @@
             </p>
 
             <h3><a class="btn btn-lg btn-dark" href="jogos/jogo04/jogo04.php">Acesse aqui</a></h3>
-
+            
+            <!--Modal para imagem depois da leitura do Qr-code-->
+            <button class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">Modal</button>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Nome da vidraria</h5>
+                        </div>
+                            <div class="modal-body">
+                                <p>Aqui aparece a foto da Vidraria gerada a partir do QR-code</p>
+                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                
             <h4>ou</h4>
 
             <div id="div-download-apk">
@@ -40,6 +58,7 @@
                 <br>
                 <a href="#"><img src="assets/img/img-playstore.png" class="img-download-apk"></a>
                 <a href="#"><img src="assets/img/img-apk.png" class="img-download-apk"></a>
+                
             </div>
         </div>
     </main>

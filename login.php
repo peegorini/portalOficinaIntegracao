@@ -44,7 +44,7 @@ if($_POST){
 
 <body class="text-center">
     <form class="form-signin" method="POST">
-        <img class="mb-4" src="assets/img/utf-logo.png" width="200px" height="65px">
+        <img class="mb-4" src="assets/img/logo2.png" width="220px" height="85px">
         <h4>Jogos Educacionais</h4>
         <br>
         <label for="inputRA" class="sr-only">Email address</label>

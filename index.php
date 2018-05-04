@@ -39,7 +39,7 @@ $usuario = $usuario->getUsuario($_SESSION['id']);
               <p class="alinhamento-texto">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
                 Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
               <p>
-                <a class="btn btn-lg btn-primary" href="jogo1.html" role="button">Jogar</a>
+                <a class="btn btn-lg btn-dark" href="jogo1.html" role="button">Jogar</a>
               </p>
             </div>
           </div>
@@ -52,7 +52,7 @@ $usuario = $usuario->getUsuario($_SESSION['id']);
               <p class="alinhamento-texto">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
                 Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
               <p>
-                <a class="btn btn-lg btn-primary" href="#" role="button">Jogar</a>
+                <a class="btn btn-lg btn-dark" href="#" role="button">Jogar</a>
               </p>
             </div>
           </div>
@@ -65,7 +65,7 @@ $usuario = $usuario->getUsuario($_SESSION['id']);
               <p class="alinhamento-texto">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
                 Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
               <p>
-                <a class="btn btn-lg btn-primary" href="#" role="button">Jogar</a>
+                <a class="btn btn-lg btn-dark" href="#" role="button">Jogar</a>
               </p>
             </div>
           </div>
@@ -78,7 +78,7 @@ $usuario = $usuario->getUsuario($_SESSION['id']);
               <p class="alinhamento-texto">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
                 Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
               <p>
-                <a class="btn btn-lg btn-primary" href="#" role="button">Jogar</a>
+                <a class="btn btn-lg btn-dark" href="#" role="button">Jogar</a>
               </p>
             </div>
           </div>
