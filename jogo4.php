@@ -20,21 +20,24 @@
         <div class="starter-template">
             <h1>App QR code</h1>
             <hr style="width: auto;">
-            <p class="lead alinhamento-texto">
-                Faça o download do aplicativo qr code para identificar e separar as vidrarias! <br> 
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, nostrum, facilis.
-                Sed ducimus delectus animi maxime sequi a atque at nobis, dolor quae laudantium. Consectetur saepe adipisci
-                voluptatibus rem odio!. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, ad quisquam quas
-                nobis natus temporibus mollitia. Quibusdam nesciunt ducimus omnis aut placeat repellendus, cum, dolores quia
-                quo ad dicta, in! Os slides acima é uma breve apresentação dos jogos Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Autem, suscipit placeat provident nemo quibusdam culpa delectus? Fuga necessitatibus rem
-                possimus magnam, autem, consectetur sequi corporis.
-            </p>
+            <p class="lead alinhamento-texto">O objetivo deste jogo é ler os códigos da apostila e mostrar a respectiva vidraria na tela. Para os usuários que desejam ter a aplicação em seu Smartphone Android, basta realizar o Download do mesmo, que pode ser acessado posteriormente sem necessidade de estar conectado a Internet.
+           <br><br>
+           - Caso você seja usuário de IOS, o aplicativo deve ser utilizado através da plataforma e para isso precisará estar conectado na internet.
+           </p>
 
-            <h3><a class="btn btn-lg btn-dark" href="jogos/jogo04/jogo04.php">Acesse aqui</a></h3>
+             <br>
+             <h3><a class="btn btn-lg btn-dark" href="jogos/jogo04/jogo04.php">Acesse aqui</a></h3>
             
-            <!--Modal para imagem depois da leitura do Qr-code-->
-            <button class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">Modal</button>
+            
+                <div id="div-download-apk">
+                    <h4>Baixe o aplicativo QR code via google play ou .apk a versão mobile</h4>
+                    <br>
+                    <a href="#"><img src="assets/img/img-playstore.png" class="img-download-apk"></a>
+                    <a href="#"><img src="assets/img/img-apk.png" class="img-download-apk"></a>
+                </div>
+                <br><br>
+                <!--Modal para imagem depois da leitura do Qr-code -->
+            <button class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter">Teste Modal</button>
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -50,17 +53,8 @@
                         </div>
                     </div>
                 </div>
-                
-            <h4>ou</h4>
-
-            <div id="div-download-apk">
-                <h4>Baixe via google play ou .apk a versão mobile</h4>
-                <br>
-                <a href="#"><img src="assets/img/img-playstore.png" class="img-download-apk"></a>
-                <a href="#"><img src="assets/img/img-apk.png" class="img-download-apk"></a>
-                
-            </div>
         </div>
+
     </main>
 
     <?php include_once('assets/layout/footer.html') ?>

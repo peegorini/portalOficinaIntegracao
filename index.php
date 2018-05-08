@@ -35,11 +35,10 @@ $usuario = $usuario->getUsuario($_SESSION['id']);
           <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Jogo 1</h1>
-              <p class="alinhamento-texto">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <h1>Encontre as Vidrarias</h1> <!--Jogo 1-->
+              <p class="alinhamento-texto">Encontre as vidrarias pedidas e diga qual o nome de cada uma delas! Mas cuidado: Você só tem 30 segundos. Depois elas somem!</p>
               <p>
-                <a class="btn btn-lg btn-dark" href="jogo1.html" role="button">Jogar</a>
+                <a class="btn btn-lg btn-dark" href="jogo1.php" role="button">Jogar</a>
               </p>
             </div>
           </div>
@@ -48,11 +47,10 @@ $usuario = $usuario->getUsuario($_SESSION['id']);
           <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Jogo 2</h1>
-              <p class="alinhamento-texto">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <h1>Equipe o Laboratório</h1><!--Jogo 2-->
+              <p class="alinhamento-texto">Encontre o local adequado de cada equipamento de segurança, deixando o laboratório em perfeito estado para utilização!</p>
               <p>
-                <a class="btn btn-lg btn-dark" href="#" role="button">Jogar</a>
+                <a class="btn btn-lg btn-dark" href="jogo2.php" role="button">Jogar</a>
               </p>
             </div>
           </div>
@@ -61,11 +59,10 @@ $usuario = $usuario->getUsuario($_SESSION['id']);
           <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Jogo 3</h1>
-              <p class="alinhamento-texto">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <h1>Organize as Vidrarias</h1><!--Jogo 3-->
+              <p class="alinhamento-texto">Coloque todas as  vidrarias em seu respectivo lugar. Uma pequena descrição da mesma vai ajudar a encontrar o lugar certo de cada uma!</p>
               <p>
-                <a class="btn btn-lg btn-dark" href="#" role="button">Jogar</a>
+                <a class="btn btn-lg btn-dark" href="jogo3.php" role="button">Jogar</a>
               </p>
             </div>
           </div>
@@ -74,11 +71,10 @@ $usuario = $usuario->getUsuario($_SESSION['id']);
           <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Jogo 4</h1>
-              <p class="alinhamento-texto">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.
-                Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <h1>Qr Code</h1><!--Jogo 4-->
+              <p class="alinhamento-texto">Instale um leitor de QR Code em seu Smartphone Android e tenha acesso as vidrarias da apostila na tela do seu celular!</p>
               <p>
-                <a class="btn btn-lg btn-dark" href="#" role="button">Jogar</a>
+                <a class="btn btn-lg btn-dark" href="jogo4.php" role="button">Jogar</a>
               </p>
             </div>
           </div>
@@ -96,22 +92,14 @@ $usuario = $usuario->getUsuario($_SESSION['id']);
 
     <div class="starter-template">
       <h1>Jogos Educacionais </h1>
-      <p class="lead alinhamento-texto">Aqui uma breve descrição sobre o que é o projeto dos jogos educacionais. Lorem ipsum dolor sit amet, consectetur adipisicing
-        elit. Quisquam, nostrum, facilis. Sed ducimus delectus animi maxime sequi a atque at nobis, dolor quae laudantium.
-        Consectetur saepe adipisci voluptatibus rem odio!. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam,
-        ad quisquam quas nobis natus temporibus mollitia. Quibusdam nesciunt ducimus omnis aut placeat repellendus, cum,
-        dolores quia quo ad dicta, in! Os slides acima é uma breve apresentação dos jogos Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Autem, suscipit placeat provident nemo quibusdam culpa delectus? Fuga necessitatibus rem possimus
-        magnam, autem, consectetur sequi corporis. Eum perspiciatis, tempore sed qui Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Consequatur totam fuga facilis animi laudantium numquam, omnis quo suscipit ea. Minus totam fugiat
-        obcaecati, tempora eveniet id exercitationem, libero voluptatibus possimus! Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Harum assumenda suscipit deleniti beatae consectetur repellendus? Nisi, quae? Iure earum fuga consequuntur
-        ut voluptatibus! Id harum expedita voluptatum sequi cum voluptas! Lorem ipsum dolor sit amet, consectetur adipisicing
-        elit. Quidem harum eum sed excepturi repellendus mollitia fugiat saepe eligendi. Voluptatibus inventore, ex incidunt
-        nobis officia ullam illo culpa temporibus corporis quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Eius esse amet alias, earum ullam laboriosam at ea nihil temporibus vel vitae vero velit eligendi perspiciatis exercitationem
-        adipisci, aspernatur repellat, doloribus.
-        <br>
+      <br>
+      <p class="lead alinhamento-texto">
+      Esta plataforma de jogos foi criada com o principal objetivo de suprir a necessidade dos professores, Reinaldo e Guilherme, que ministram a disciplina de química na UTFPR campus Dois Vizinhos.
+    
+      A principal dificuldade esta associada a identificação das vidrarias utilizadas durante as aulas práticas, e também ao local correto deos equipamentos de segurança do laboratório.
+      <br> <br>
+     Para solucionar os problemas acima, os professores procuraram a coordenação do curso de Engenharia de Software deste mesmo campus, onde os professores da materia de Oficina de Integração 2 aceitaram o desafio.
+     <br><br>O desenvolvimento ficou por conta dos acadêmicos Caroline Adami, Élio Costa, Jackson Schimit, Jean Londero, Jessica Pegorini, Leonardo Nicolai, Matheus Zilio, Micheli Dietrich e Tiago Traça, juntamente com os professores Marlon Marcon e André Ortoncelli.
       </p>
     </div>
   </main>

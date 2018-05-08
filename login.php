@@ -16,7 +16,7 @@ if($_POST){
             exit;
         }
         else if($usuario->getNivelAcesso() == 2){
-            header("Location: professor.php");
+            header("Location: pagina-do-professor.php");
             exit;
         }
         else if($usuario->getNivelAcesso() == 3){

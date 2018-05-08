@@ -18,15 +18,13 @@
     <main role="main" class="container">
 
         <div class="starter-template">
-            <h1>Jogo 2</h1>
+            <h1>Equipando o Laboratório</h1>
             <hr style="width: auto;">
-            <p class="lead alinhamento-texto">DESCRIÇÃO DO JOGO AQUI. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, nostrum, facilis.
-                Sed ducimus delectus animi maxime sequi a atque at nobis, dolor quae laudantium. Consectetur saepe adipisci
-                voluptatibus rem odio!. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, ad quisquam quas
-                nobis natus temporibus mollitia. Quibusdam nesciunt ducimus omnis aut placeat repellendus, cum, dolores quia
-                quo ad dicta, in! Os slides acima é uma breve apresentação dos jogos Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Autem, suscipit placeat provident nemo quibusdam culpa delectus? Fuga necessitatibus rem
-                possimus magnam, autem, consectetur sequi corporis.
+            <p class="lead alinhamento-texto">Neste jogo, você fica encarregado de arrastar os equipamentos de segurança dispostos na tela para os seus respectivos locais, e para isso, de um click no equipamento desejado e o arraste para o seu devido local.
+            <br><br>
+            <strong>Regras:</strong>
+            <br>
+            - O jogo termina quando todos os equipamentos de segurança estiverem no local correto.
                 <br>
             </p>
         </div>

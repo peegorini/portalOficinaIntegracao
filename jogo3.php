@@ -18,16 +18,14 @@
     <main role="main" class="container">
 
         <div class="starter-template">
-            <h1>Jogo 3</h1>
+            <h1>Organizando as Vidrarias</h1>
             <hr style="width: auto;">
-            <p class="lead alinhamento-texto">DESCRIÇÃO DO JOGO AQUI. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, nostrum, facilis.
-                Sed ducimus delectus animi maxime sequi a atque at nobis, dolor quae laudantium. Consectetur saepe adipisci
-                voluptatibus rem odio!. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, ad quisquam quas
-                nobis natus temporibus mollitia. Quibusdam nesciunt ducimus omnis aut placeat repellendus, cum, dolores quia
-                quo ad dicta, in! Os slides acima é uma breve apresentação dos jogos Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Autem, suscipit placeat provident nemo quibusdam culpa delectus? Fuga necessitatibus rem
-                possimus magnam, autem, consectetur sequi corporis.
-                <br>
+            <p class="lead alinhamento-texto">Neste jogo, você fica encarregado de colocar as vidrarias mostradas na tela nos seus respectivos locais, onde haverá as descrições das mesmas, para isso, de um click na imagem e a arraste até a sua descrição.
+            <br><br>
+            <strong>Regras:</strong>
+            <br>
+            - O jogo termina quando todas as vidrarias estiverem no local correto.
+            <br>
             </p>
         </div>
 

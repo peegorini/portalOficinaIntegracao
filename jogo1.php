@@ -18,15 +18,15 @@
     <main role="main" class="container">
 
         <div class="starter-template">
-            <h1>Jogo 1</h1>
+            <h1>Encontre as Vidrarias</h1>
             <hr style="width: auto;">
-            <p class="lead alinhamento-texto">DESCRIÇÃO DO JOGO AQUI. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, nostrum, facilis.
-                Sed ducimus delectus animi maxime sequi a atque at nobis, dolor quae laudantium. Consectetur saepe adipisci
-                voluptatibus rem odio!. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, ad quisquam quas
-                nobis natus temporibus mollitia. Quibusdam nesciunt ducimus omnis aut placeat repellendus, cum, dolores quia
-                quo ad dicta, in! Os slides acima é uma breve apresentação dos jogos Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Autem, suscipit placeat provident nemo quibusdam culpa delectus? Fuga necessitatibus rem
-                possimus magnam, autem, consectetur sequi corporis.
+            <p class="lead alinhamento-texto">Neste jogo você fica encarregado de encontrar as vidrarias pedidas que estão escondidas na tela e relaciona-las com seu respectivo nome. Para isso, selecione o nome da vidraria e em seguida clique na imagem a ser relacionada. 
+            <br><br>
+            <strong>Regras:</strong>
+            <br>
+            - Os nomes mudam a cada 30 segundos;
+            <br>
+            - O jogo termina quando todos os nomes são selecionados e relacionados com suas respectivas vidrarias.
                 <br>
             </p>
         </div>
