@@ -29,9 +29,9 @@
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">Jogos</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="jogo1.php">Jogo 1</a>
-            <a class="dropdown-item" href="jogo2.php">Jogo 2</a>
-            <a class="dropdown-item" href="jogo3.php">Jogo 3</a>
+            <a class="dropdown-item" href="jogo1.php">Encontre as Vidrarias</a>
+            <a class="dropdown-item" href="jogo2.php">Equipe o Laboratório</a>
+            <a class="dropdown-item" href="jogo3.php">Organize as Vidrarias</a>
             <a class="dropdown-item" href="jogo4.php">App QR code</a>
           </div>
         </li>
@@ -49,9 +49,15 @@
               <a class="nav-link" href="colabore.php">Colabore</a>
             </li>
             
-            <li class="nav-item">
-              <a class="nav-link" href="publicar-jogo.php">Publicar</a>
-            </li>
+            <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">Admin</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="publicar-jogo.php">Publicar Jogo</a>
+            <a class="dropdown-item" href="deletar-jogo.php">Excluir Jogo</a>
+          </div>
+        </li>
+
       </ul>
       <img src="assets/img/logo1.png" class="logo-utf">
     </div>

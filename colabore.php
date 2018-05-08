@@ -112,16 +112,7 @@ if($_POST && isset($_FILES['arquivo'])){
                 aut placeat repellendus, cum, dolores quia quo ad dicta, in! Os slides acima é uma breve apresentação dos
                 jogos Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, suscipit placeat provident nemo quibusdam
                 culpa delectus? Fuga necessitatibus rem possimus magnam, autem, consectetur sequi corporis. Eum perspiciatis,
-                tempore sed qui Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur totam fuga facilis
-                animi laudantium numquam, omnis quo suscipit ea. Minus totam fugiat obcaecati, tempora eveniet id exercitationem,
-                libero voluptatibus possimus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum assumenda suscipit
-                deleniti beatae consectetur repellendus? Nisi, quae? Iure earum fuga consequuntur ut voluptatibus! Id harum
-                expedita voluptatum sequi cum voluptas! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem
-                harum eum sed excepturi repellendus mollitia fugiat saepe eligendi. Voluptatibus inventore, ex incidunt nobis
-                officia ullam illo culpa temporibus corporis quam. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Eius esse amet alias, earum ullam laboriosam at ea nihil temporibus vel vitae vero velit eligendi perspiciatis
-                exercitationem adipisci, aspernatur repellat, doloribus.
-            </p>
+                tempore sed qui Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
 
         <div class="starter-template">
@@ -134,7 +125,7 @@ if($_POST && isset($_FILES['arquivo'])){
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <label for="InputTitulo">Titulo </label>
+                            <label for="InputTitulo">Titulo: </label>
                             <label for="" class="campo-requerido">*</label>
                             <input type="text" class="form-control" id="InputTitulo" name="titulo" placeholder="Título do jogo" required>
                         </div>
@@ -143,7 +134,7 @@ if($_POST && isset($_FILES['arquivo'])){
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="InputNome">Nome </label>
+                            <label for="InputNome">Nome: </label>
                             <label for="" class="campo-requerido">*</label>
                             <input type="text" class="form-control" id="InputNome" name="nome" placeholder="Nome completo" required>
                         </div>
@@ -151,7 +142,7 @@ if($_POST && isset($_FILES['arquivo'])){
 
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="InputEmail">E-mail </label>
+                            <label for="InputEmail">E-mail: </label>
                             <label for="" class="campo-requerido">*</label>
                             <input type="email" class="form-control" id="InputEmail" name="email" placeholder="E-mail" required>
                         </div>
@@ -161,19 +152,19 @@ if($_POST && isset($_FILES['arquivo'])){
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="InputUniversidade">Universidade </label>
+                            <label for="InputUniversidade">Universidade: </label>
                             <input type="text" class="form-control" id="InputUniversidade" name="universidade" placeholder="Digite o nome da universidade">
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="InputCurso">Curso </label>
+                            <label for="InputCurso">Curso: </label>
                             <input type="text" class="form-control" id="InputCurso" name="curso" placeholder="Digite o nome do curso">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="textareaColabore">Descrição do Jogo </label>
+                    <label for="textareaColabore">Descrição do Jogo: </label>
                     <label for="" class="campo-requerido">*</label>
                     <textarea class="form-control" id="textareaColabore" rows="10" name="descricao" placeholder="Escreva aqui uma breve descrição do jogo e as instruções, seguindo as regras estabelecidas acima...." required></textarea>
                 </div>

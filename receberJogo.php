@@ -33,12 +33,38 @@ if (isset($arquivo['tmp_name']) && !empty($arquivo['tmp_name'])) {
         exit;
     }
 }
-?>
+?><!doctype html>
+<html lang="pt-br">
 
-<hr/>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="assets/img/favicon.ico">
+    <title>Jogos Educacionais</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <?php include_once('assets/layout/header.php') ?>
 
-<h2>Seu jogo foi enviado com sucesso para análise!</h2><br/>
-<h3>Caso esteja tudo ok, logo ele estará disponível em nosso acervo!</h3><br/>
-<h4>Obrigado pela contribuição! :)</h4><br/><br/>
+          <div class="starter-template">
 
-<a href="index.php">Voltar para a home</a>
+                <div class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Sucesso!</Strong> Seu jogo foi enviado para análise! Caso esteja no padrão requerido, estará em nosso acervo em breve!
+                </div>
+                <br><br><br>
+
+                <div role="main" class="container">
+                <p>
+                    <h4>Agradecemos pela sua contribuição!</h4>
+                    </p>
+                </div>
+            </div>
+
+            <br><br><br><br><br><br><br><br>
+            
+    <?php include_once('assets/layout/footer.html') ?>
+</body>
+    
+</html>
