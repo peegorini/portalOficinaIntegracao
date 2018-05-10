@@ -108,7 +108,10 @@ class DaoUsuario extends ConnManager {
 
     public function loginUsuario(&$usuario){
 
-        $sql = "SELECT * FROM usuarios WHERE ra = :ra AND senha = :senha";
+        $sql = "SELECT usuarios.*, usuarios_tokens.usado 
+                FROM usuarios
+                LEFT JOIN usuarios_tokens ON usuarios_tokens.id_usuario=usuarios.id 
+                WHERE ra = :ra AND senha = :senha";
         $sql = $this->conn->prepare($sql);
         $sql->bindValue(":ra",$usuario->getRa());
         $sql->bindValue(":senha",$usuario->getSenha());
@@ -120,13 +123,20 @@ class DaoUsuario extends ConnManager {
 
             $dados = $sql->fetch();
 
-            $usuario->setNivelAcesso($dados['niveldeacesso']);
-            $usuario->setNome($dados['nome']);
-            $usuario->setEmail($dados['email']);
-            $usuario->setId($dados['id']);
+            if($dados['usado'] == 0){
+                echo 'Seu usuario não foi confirmado ainda';
+                return false;
+            }
+            else if($dados['usado'] == 1){
 
-            $_SESSION['id'] = $dados['id'];
-            $_SESSION['nivelAcesso'] = $dados['niveldeacesso'];
+                $usuario->setNivelAcesso($dados['niveldeacesso']);
+                $usuario->setNome($dados['nome']);
+                $usuario->setEmail($dados['email']);
+                $usuario->setId($dados['id']);
+
+                $_SESSION['id'] = $dados['id'];
+                $_SESSION['nivelAcesso'] = $dados['niveldeacesso'];
+            }
 
             return true;
         }
