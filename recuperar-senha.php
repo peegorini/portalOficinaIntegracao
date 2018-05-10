@@ -19,8 +19,8 @@ if(!empty($_POST['ra'])){
     $sql->execute();
 
     if($sql->rowCount() > 0){
-        $sql = $sql->fetch();
-        $id = $sql['id'];
+        $fetch = $sql->fetch();
+        $id = $fetch['id'];
 
         $token = sha1(time().rand(0,99999).rand(0,99999));
 
@@ -30,20 +30,6 @@ if(!empty($_POST['ra'])){
         $sql->bindValue(":hash", $token);
         $sql->bindValue(":expira_em", date('Y-m-d H:i', strtotime('+1 months')));
         $sql->execute();
-
-
-        $link = $_SERVER['SERVER_NAME'].'://'.$_SERVER['SERVER_NAME']."redefinir.php?token=".$token;
-        // $link = "http://localhost/portaloficinaintegracao/redefinir.php?token=".$token;
-
-        $mensagem = "Clique no link para redefinir sua senha:<br/>".$link;
-
-        $assunto = "Redefinição de senha";
-
-        $headers = 'From: teste@teste.com.br'."\r\n".'X-Mailer: PHP/'.phpversion();
-
-
-
-
 
         $headers = "MIME-Version: 1.0\r\n"; 
         $headers .= "From: $nome <$email>\r\n"; 
@@ -55,12 +41,12 @@ if(!empty($_POST['ra'])){
 
         $message = "<html><head></head><body>
                     Clique no link para redefinir sua senha:<br>
-                    ".$_SERVER['SERVER_HOST'].'://'.$_SERVER['SERVER_NAME']."/redefinir.php?token=".$token."
+                    ".$_SERVER['SERVER_HOST']."://".$_SERVER['SERVER_NAME'] . "/redefinir.php?token=".$token."
                     <br><br>
                     </body></html>";
         $subject = "Redefinição de senha";
 
-        $sentMail = @mail($sql['nome']." <".$email.">", $subject, $body, $headers);
+        $sentMail = @mail($fetch['nome']." <".$email.">", $subject, $body, $headers);
 
 
         if($sentMail){
