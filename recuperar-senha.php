@@ -31,7 +31,9 @@ if(!empty($_POST['ra'])){
         $sql->bindValue(":expira_em", date('Y-m-d H:i', strtotime('+1 months')));
         $sql->execute();
 
-        $link = "http://localhost/portaloficinaintegracao/redefinir.php?token=".$token;
+
+        $link = $_SERVER['SERVER_NAME'].'://'.$_SERVER['SERVER_NAME']."redefinir.php?token=".$token;
+        // $link = "http://localhost/portaloficinaintegracao/redefinir.php?token=".$token;
 
         $mensagem = "Clique no link para redefinir sua senha:<br/>".$link;
 
