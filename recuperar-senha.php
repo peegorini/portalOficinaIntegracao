@@ -46,7 +46,7 @@ if(!empty($_POST['ra'])){
                     </body></html>";
         $subject = "Redefinição de senha";
 
-        $sentMail = @mail($fetch['nome']." <".$email.">", $subject, $body, $headers);
+        $sentMail = @mail($fetch['nome']." <".$email.">", $subject, $message, $headers);
 
 
         if($sentMail){
