@@ -37,7 +37,7 @@ if(!empty($_POST['ra'])){
         $headers .= "Return-Path: $nome <$email>\r\n";
         $headers .= "X-Priority: 3\r\n";
         $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
-        $headers .= "Content-Type: multipart/mixed; boundary = $boundary\r\n\r\n"; 
+        $headers .= "Content-Type: text/html; charset=UTF-8\r\n\r\n"; 
 
         $message = "<html><head></head><body>
                     Clique no link para redefinir sua senha:<br>
