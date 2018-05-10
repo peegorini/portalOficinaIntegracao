@@ -25,7 +25,7 @@ if($_POST){
         }
 
     } else {
-        $msgErro = 'Dados inválidos, tente novamente. <br> verifique seu email para confirmar seu cadastro caso ainda não tenha feito.';
+        $msgErro = 'Dados inválidos, tente novamente.<br><br>Verifique seu e-mail para confirmar seu cadastro caso ainda não tenha feito.';
     }
 }
 ?><!doctype html>

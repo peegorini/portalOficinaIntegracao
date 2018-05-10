@@ -75,7 +75,7 @@ if (!empty($_POST['ra']) && !empty($_POST['nome']) && !empty($_POST['email']) &&
             
             $sentMail = @mail($nome." <".$email.">", $subject, $body, $headers);
 
-            $msg = 'Cadastro efetuado com sucesso! Verifique seu e-mail para confirmar seu cadastro (cheque a caixa de SPAM)';
+            $msg = 'Cadastro efetuado com sucesso! Verifique seu e-mail para confirmar seu cadastro (cheque a caixa de SPAM)<br><br>';
             $msgStatus = true;
             // $headerRedirect = '<meta http-equiv="refresh" content="5; url=login.php" />';
         }
@@ -112,6 +112,9 @@ if (!empty($_POST['ra']) && !empty($_POST['nome']) && !empty($_POST['email']) &&
         <?php if(!empty($msg)){ ?>
 
             <p class="alert <?php echo ($msgStatus?'alert-success':'alert-danger')?>"><?php echo $msg ?></p>
+            <?php if($msgStatus){ ?>
+            <a class="btn btn-lg btn-dark" href="login.php">Login</a>
+            <?php } ?>
 
         <?php } if(!$msgStatus){ ?>
         <label for="inputRA" class="sr-only">RA</label>
