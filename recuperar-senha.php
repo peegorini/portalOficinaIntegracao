@@ -41,7 +41,29 @@ if(!empty($_POST['ra'])){
 
         $headers = 'From: teste@teste.com.br'."\r\n".'X-Mailer: PHP/'.phpversion();
 
-        if(mail($email, $assunto,$mensagem,$headers)){
+
+
+
+
+        $headers = "MIME-Version: 1.0\r\n"; 
+        $headers .= "From: $nome <$email>\r\n"; 
+        $headers .= "Reply-To: $nome <$email>\r\n"; 
+        $headers .= "Return-Path: $nome <$email>\r\n";
+        $headers .= "X-Priority: 3\r\n";
+        $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
+        $headers .= "Content-Type: multipart/mixed; boundary = $boundary\r\n\r\n"; 
+
+        $message = "<html><head></head><body>
+                    Clique no link para redefinir sua senha:<br>
+                    ".$_SERVER['SERVER_HOST'].'://'.$_SERVER['SERVER_NAME']."/redefinir.php?token=".$token."
+                    <br><br>
+                    </body></html>";
+        $subject = "Redefinição de senha";
+
+        $sentMail = @mail($sql['nome']." <".$email.">", $subject, $body, $headers);
+
+
+        if($sentMail){
             $msg = 'Confira seu e-mail para mais instruções.';
             $msgStatus = true;
         }
