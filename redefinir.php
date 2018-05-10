@@ -1,8 +1,5 @@
 <?php
 require "dao/ConnManager.php";
-echo '<pre>';
-print_r($_SERVER);
-echo '</pre>';
 
 if (!empty($_GET['token'])){
 
