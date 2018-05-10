@@ -62,10 +62,12 @@ if (!empty($_POST['ra']) && !empty($_POST['nome']) && !empty($_POST['email']) &&
             $headers .= "X-Priority: 3\r\n";
             $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n\r\n"; 
+
+            $link = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME']."?token=".$token;
             
             $message = "<html><head></head><body>
                         Clique no link abaixo para confirmar seu cadastro:<br>
-                        ".$_SERVER['SERVER_NAME'].'://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME']."?token=".$token."
+                        <a href='".$link."'>".$link."</a>
                         <br><br>
                         <strong>Confira o arquivo em anexo</strong></body></html>";
             $subject = "Confirmação de cadastro";

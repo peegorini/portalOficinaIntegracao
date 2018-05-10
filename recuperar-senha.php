@@ -39,9 +39,11 @@ if(!empty($_POST['ra'])){
         $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n\r\n"; 
 
+        $link = $_SERVER['REQUEST_SCHEME']."://".$_SERVER['SERVER_NAME'] . "/redefinir.php?token=".$token;
+
         $message = "<html><head></head><body>
                     Clique no link para redefinir sua senha:<br>
-                    ".$_SERVER['SERVER_HOST']."://".$_SERVER['SERVER_NAME'] . "/redefinir.php?token=".$token."
+                    <a href='".$link."'>".$link."</a>
                     <br><br>
                     </body></html>";
         $subject = "Redefinição de senha";
