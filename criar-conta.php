@@ -73,7 +73,7 @@ if (!empty($_POST['ra']) && !empty($_POST['nome']) && !empty($_POST['email']) &&
             $subject = "Confirmação de cadastro";
 
             
-            $sentMail = @mail($nome." <".$email.">", $subject, $body, $headers);
+            $sentMail = @mail($nome." <".$email.">", $subject, $message, $headers);
 
             $msg = 'Cadastro efetuado com sucesso! Verifique seu e-mail para confirmar seu cadastro (cheque a caixa de SPAM)<br><br>';
             $msgStatus = true;
