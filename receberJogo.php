@@ -4,7 +4,7 @@ include_once "dao/DaoJogo.php";
 session_start();
 $daousuario = new DaoUsuario();
 $usuario = $daousuario->getUsuario($_SESSION['id']);
-$usuario->checkPermissao(2);
+Usuario::checkPermissao(2);
 
 $arquivo = $_FILES['arquivo'];
 

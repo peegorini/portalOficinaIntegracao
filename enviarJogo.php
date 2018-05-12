@@ -2,7 +2,7 @@
 include_once "dao/DaoUsuario.php";
 $daousuario = new DaoUsuario();
 $usuario = $daousuario->getUsuario($_SESSION['id']);
-$usuario->checkPermissao(2);
+Usuario::checkPermissao(2);
 ?>
 
 <h1>Enviar Jogo</h1>
