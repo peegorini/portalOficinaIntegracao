@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include_once('../templates/header.html') ?>
+    <?php include_once('assets/layout/header.php') ?>
 
     <main role="main" class="container">
 
@@ -37,7 +37,7 @@
         <br>
     </main>
 
-    <?php include_once('../templates/footer.html') ?>
+    <?php include_once('assets/layout/footer.html') ?>
 
 </body>
 
