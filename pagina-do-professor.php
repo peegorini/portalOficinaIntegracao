@@ -30,23 +30,14 @@ $usuario->checkPermissao(2);
             <h1>Pagina de controle do professor</h1>
             <hr style="width: auto;">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="dropdown padding-pesquisaProf">
-                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Selecionar Turma
-                        </button>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">1º Periodo</a>
-                            <a class="dropdown-item" href="#">2º Periodo</a>
-                            <a class="dropdown-item" href="#">3º Periodo</a>
-                        </div>
-                    </div>
+                <div class="col-lg-8">
+                    Busca por data: <input type="date" class="form-control " name=""> até <input class="form-control" type="date" name="">
+                    <button class="btn btn-dark" type="button">Filtrar</button>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <div class="input-group padding-pesquisaProf">
-                        <input type="text" class="form-control" placeholder="Pesquisar por data">
+                        <input type="text" class="form-control" placeholder="Pesquisar por RA">
                         <span class="input-group-btn">
                         <button class="btn btn-dark" type="button">Pesquisar</button>
                         </span>
@@ -59,67 +50,79 @@ $usuario->checkPermissao(2);
                     <tr>
                         <th scope="col">RA</th>
                         <th scope="col">Nome</th>
+                        <th scope="col">Jogo</th>
                         <th scope="col">Data</th>
-                        <th scope="col">Jogou</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>
-                        <td>03/12/1996</td>
                         <td>S</td>
+                        <td>03/12/1996</td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Jacob</td>
-                        <td>03/12/1996</td>
                         <td>N</td>
+                        <td>03/12/1996</td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>Larry</td>
-                        <td>03/12/1996</td>
                         <td>S</td>
+                        <td>03/12/1996</td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
                         <td>Mark</td>
-                        <td>03/12/1996</td>
                         <td>N</td>
+                        <td>03/12/1996</td>
                     </tr>
                     <tr>
                         <th scope="row">5</th>
                         <td>Jacob</td>
-                        <td>03/12/1996</td>
                         <td>S</td>
+                        <td>03/12/1996</td>
                     </tr>
                     <tr>
                         <th scope="row">6</th>
                         <td>Larry</td>
-                        <td>03/12/1996</td>
                         <td>N</td>
+                        <td>03/12/1996</td>
                     </tr>
                     <tr>
                         <th scope="row">7</th>
                         <td>Mark</td>
-                        <td>03/12/1996</td>
                         <td>S</td>
+                        <td>03/12/1996</td>
                     </tr>
                     <tr>
                         <th scope="row">8</th>
                         <td>Jacob</td>
-                        <td>03/12/1996</td>
                         <td>N</td>
+                        <td>03/12/1996</td>
                     </tr>
                     <tr>
                         <th scope="row">9</th>
                         <td>Larry</td>
-                        <td>03/12/1996</td>
                         <td>S</td>
+                        <td>03/12/1996</td>
                     </tr>
                 </tbody>
             </table>
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <button class="btn btn-dark" type="button"><</button>
+                    <button class="btn btn-dark" type="button">1</button>
+                    <button class="btn btn-dark" type="button">2</button>
+                    <button class="btn btn-dark" type="button">3</button>
+                    <button class="btn btn-dark" type="button">4</button>
+                    <button class="btn btn-dark" type="button">Última</button>
+                    <button class="btn btn-dark" type="button">></button>
+                </div>
+            </div>
+            <br>
             <button type="button" class="btn btn-dark">Imprimir</button>
         </div>
 
