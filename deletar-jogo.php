@@ -1,5 +1,10 @@
-
-<html lang="pt-br">
+<?php
+include_once "dao/DaoUsuario.php";
+session_start();
+$usuario = new DaoUsuario();
+$usuario = $usuario->getUsuario($_SESSION['id']);
+$usuario->checkPermissao(3);
+?><html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
