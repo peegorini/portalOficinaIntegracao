@@ -20,7 +20,7 @@ if($_POST){
             exit;
         }
         else if($usuario->getNivelAcesso() == 3){
-            header("Location: admin.php");
+            header("Location: publicar-jogo.php");
             exit;
         }
 
