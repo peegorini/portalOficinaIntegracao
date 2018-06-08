@@ -63,7 +63,7 @@ if (!empty($_POST['ra']) && !empty($_POST['nome']) && !empty($_POST['email']) &&
             $headers .= "X-Mailer: PHP". phpversion() ."\r\n" ;
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n\r\n"; 
 
-            $link = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME'].$_SERVER['SCRIPT_NAME']."?token=".$token;
+            $link = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['SERVER_NAME']."/login.php?token=".$token;
             
             $message = "<html><head></head><body>
                         Clique no link abaixo para confirmar seu cadastro:<br>
