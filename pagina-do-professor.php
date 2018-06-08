@@ -1,9 +1,13 @@
 <?php
 include_once('dao/DaoUsuario.php');
+include_once('dao/DaoJogo.php');
 session_start();
 $daousuario = new DaoUsuario();
 $usuario = $daousuario->getUsuario($_SESSION['id']);
 Usuario::checkPermissao(2);
+
+$daojogo = new DaoJogo();
+$jogadas = $daojogo->listarJogadas();
 
 ?><!doctype html>
 <html lang="pt-br">
@@ -54,62 +58,26 @@ Usuario::checkPermissao(2);
                         <th scope="col">Data</th>
                     </tr>
                 </thead>
+                <?php 
+                if(is_array($jogadas)){
+                ?>
                 <tbody>
+                    <?php
+                    foreach ($jogadas as $row) {
+                    ?>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>S</td>
-                        <td>03/12/1996</td>
+                        <th scope="row"><?php echo $row['ra'] ?></th>
+                        <td><?php echo $row['nome_aluno'] ?></td>
+                        <td><?php echo $row['nome_jogo'] ?></td>
+                        <td><?php echo $row['data_conclusao'] ?></td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>N</td>
-                        <td>03/12/1996</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>S</td>
-                        <td>03/12/1996</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>N</td>
-                        <td>03/12/1996</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Jacob</td>
-                        <td>S</td>
-                        <td>03/12/1996</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6</th>
-                        <td>Larry</td>
-                        <td>N</td>
-                        <td>03/12/1996</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">7</th>
-                        <td>Mark</td>
-                        <td>S</td>
-                        <td>03/12/1996</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">8</th>
-                        <td>Jacob</td>
-                        <td>N</td>
-                        <td>03/12/1996</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">9</th>
-                        <td>Larry</td>
-                        <td>S</td>
-                        <td>03/12/1996</td>
-                    </tr>
+                    <?php
+                    }
+                    ?>
                 </tbody>
+                <?php
+                }
+                ?>
             </table>
             <div class="row">
                 <div class="col-lg-12 ">
@@ -130,19 +98,7 @@ Usuario::checkPermissao(2);
 
     <!-- /.container -->
 
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted" style="text-align: center">&copy; UTFPR - Universidade Tecnológica Federal do Paraná.</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <?php include_once('assets/layout/footer.html') ?>
 
 </body>
-
 </html>
