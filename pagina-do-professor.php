@@ -35,13 +35,13 @@ $jogadas = $daojogo->listarJogadas();
             <hr style="width: auto;">
             <div class="row">
                 <div class="col-lg-8">
-                    Busca por data: <input type="date" class="form-control " name=""> até <input class="form-control" type="date" name="">
+                    Busca por data: <input type="date" class="form-control form-control-inline" name=""> até <input class="form-control form-control-inline" type="date" name="">
                     <button class="btn btn-dark" type="button">Filtrar</button>
                 </div>
 
                 <div class="col-lg-4">
                     <div class="input-group padding-pesquisaProf">
-                        <input type="text" class="form-control" placeholder="Pesquisar por RA">
+                        <input type="text" class="form-control form-control-inline" placeholder="Pesquisar por RA">
                         <span class="input-group-btn">
                         <button class="btn btn-dark" type="button">Pesquisar</button>
                         </span>
