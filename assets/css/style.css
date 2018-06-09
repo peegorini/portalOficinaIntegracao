@@ -35,7 +35,7 @@
 .footer{
   font-size: 14px;
 }
-.form-control{
+.form-control-inline{
   display: inline !important;
   width: auto !important;
 }

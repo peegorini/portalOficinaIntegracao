@@ -28,6 +28,32 @@ if($_POST){
         $msgErro = 'Dados inválidos, tente novamente.<br><br>Verifique seu e-mail para confirmar seu cadastro caso ainda não tenha feito.';
     }
 }
+
+# ATIVAÇÃO DA CONTA
+if (!empty($_GET['token'])){
+
+    $token = $_GET['token'];
+
+    $dbcon = new ConnManager();
+    $conn = $dbcon->connect();
+
+    $sql = "SELECT * FROM usuarios_tokens WHERE hash = :hash AND usado = 0 AND expira_em > now()";
+    $sql = $conn->prepare($sql);
+    $sql->bindValue(":hash", $token);
+    $sql->execute();
+
+    if ($sql->rowCount() > 0){
+
+        $sql = $sql->fetch();
+        $id = $sql['id_usuario'];
+
+        $sql = "UPDATE usuarios_tokens SET usado = 1 WHERE hash = :hash";
+        $sql = $conn->prepare($sql);
+        $sql->bindValue(":hash",$token);
+        $sql->execute();
+    }
+}
+
 ?><!doctype html>
 <html lang="pt-br">
 
